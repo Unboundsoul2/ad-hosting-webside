@@ -23,30 +23,21 @@ export default defineConfig(({ mode }) => ({
     chunkSizeWarningLimit: 800,
     rollupOptions: {
       output: {
-        manualChunks: {
-          'vendor': [
-            'react',
-            'react-dom',
-            'react-router-dom',
-            '@supabase/supabase-js',
-            'zustand',
-            'zod',
-            'tailwindcss',
-            'clsx',
-            'lucide-react'
-          ],
-          'ui-core': [
-            '@radix-ui/react-dialog',
-            '@radix-ui/react-slot',
-            '@radix-ui/react-label',
-            '@radix-ui/react-tabs',
-            'class-variance-authority'
-          ],
-          'ui-utils': [
-            'tailwind-merge',
-            '@hookform/resolvers',
-            'react-hook-form'
-          ]
+        manualChunks: (id) => {
+          if (id.includes('node_modules')) {
+            if (['react', 'react-dom', 'react-router-dom', '@supabase/supabase-js', 'zustand', 'zod', 'tailwindcss', 'clsx', 'lucide-react']
+              .some(dep => id.includes(dep))) {
+              return 'vendor';
+            }
+            if (['@radix-ui/react-dialog', '@radix-ui/react-slot', '@radix-ui/react-label', '@radix-ui/react-tabs', 'class-variance-authority']
+              .some(dep => id.includes(dep))) {
+              return 'ui-core';
+            }
+            if (['tailwind-merge', '@hookform/resolvers', 'react-hook-form']
+              .some(dep => id.includes(dep))) {
+              return 'ui-utils';
+            }
+          }
         }
       }
     }
