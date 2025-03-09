@@ -1,4 +1,3 @@
-
 import { supabase } from "@/integrations/supabase/client";
 
 export async function setupStorage() {
@@ -13,6 +12,3 @@ export async function setupStorage() {
     });
   }
 }
-
-// Call this during app initialization
-setupStorage().catch(console.error);

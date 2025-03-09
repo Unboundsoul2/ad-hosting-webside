@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -19,7 +18,7 @@ import { AuthProvider } from "./contexts/AuthContext";
 import { useEffect } from "react";
 import { configService } from "./services/ConfigService";
 import { memoryService } from "./services/MemoryService";
-import { initializeStorage } from "./supabase/storage-setup";
+import { setupStorage } from "./supabase/storage-setup";
 
 const queryClient = new QueryClient();
 
@@ -41,7 +40,7 @@ const App = () => {
     });
 
     // Initialize Supabase storage
-    initializeStorage().catch(err => {
+    setupStorage().catch(err => {
       console.error('Failed to initialize storage:', err);
     });
 
