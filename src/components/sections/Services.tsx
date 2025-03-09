@@ -1,4 +1,3 @@
-
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { Server, Globe, Code, Bot } from "lucide-react";

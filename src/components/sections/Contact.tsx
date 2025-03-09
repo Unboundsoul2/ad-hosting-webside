@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
@@ -62,7 +61,7 @@ const Contact = () => {
 
             <Reveal delay={400}>
               <div className="bg-card rounded-xl p-6 border border-border soft-shadow mb-6">
-                <h3 className="text-lg font-semibold mb-3">AD Hosting</h3>
+                <h3 className="text-lg font-semibold mb-3">A&D Hosting</h3>
                 <p className="text-muted-foreground mb-4">
                   Premium digital solutions for the modern web. Experience excellence in every aspect of your online presence.
                 </p>

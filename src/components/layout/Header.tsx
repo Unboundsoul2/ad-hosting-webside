@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Container } from "@/components/ui/container";
 import { Moon, Sun, Menu, X, Server, LogIn, LayoutDashboard } from "lucide-react";
@@ -50,7 +49,7 @@ const Header = () => {
       <Container className="flex items-center justify-between">
         <Link to="/" className="flex items-center space-x-2">
           <Server className="h-6 w-6 text-accent" />
-          <span className="text-xl font-heading font-semibold tracking-tight">AD Hosting</span>
+          <span className="text-xl font-heading font-semibold tracking-tight">A&D Hosting</span>
         </Link>
 
         {/* Desktop navigation */}
