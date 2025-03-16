@@ -19,6 +19,7 @@ import { useEffect } from "react";
 import { configService } from "./services/ConfigService";
 import { memoryService } from "./services/MemoryService";
 import { setupStorage } from "./supabase/storage-setup";
+import { Analytics } from '@vercel/analytics/react';
 
 const queryClient = new QueryClient();
 
@@ -78,6 +79,7 @@ const App = () => {
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </BrowserRouter>
+            <Analytics />
           </AuthProvider>
         </TooltipProvider>
       </ThemeProvider>
