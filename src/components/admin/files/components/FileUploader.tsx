@@ -1,4 +1,3 @@
-
 import { useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Upload, Loader2 } from 'lucide-react';
@@ -42,6 +41,8 @@ export const FileUploader = ({ isUploading, onUpload }: FileUploaderProps) => {
         ref={fileInputRef}
         onChange={handleFileChange}
         className="hidden"
+        aria-label="Upload file"
+        title="Upload file"
       />
     </>
   );

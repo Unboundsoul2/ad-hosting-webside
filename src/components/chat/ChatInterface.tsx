@@ -222,8 +222,10 @@ const ChatInterface = () => {
       <input 
         type="file"
         ref={fileInputRef}
-        style={{ display: 'none' }}
+        className="hidden"
         onChange={handleFileUpload}
+        aria-label="Upload file"
+        title="Upload file"
       />
 
       <div className="fixed bottom-8 right-8 z-50">
