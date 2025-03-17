@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-b from-background to-background/90 z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-background/50 to-background/80 z-10"></div>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(var(--primary),0.07),transparent_70%)]"></div>
         <div className="absolute -top-[25%] -right-[25%] rounded-full w-[50%] h-[50%] bg-primary/5 blur-[120px]"></div>
         <div className="absolute top-[75%] -left-[25%] rounded-full w-[50%] h-[50%] bg-primary/5 blur-[120px]"></div>

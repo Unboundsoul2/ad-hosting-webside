@@ -8,7 +8,7 @@ const testimonials = [
     id: 1,
     name: "Sarah Johnson",
     role: "CEO, TechStart",
-    content: "A&D Hosting transformed our online presence. Their servers are lightning fast, and their support team is responsive and knowledgeable.",
+    content: "A&D Studios transformed our online presence. Their servers are lightning fast, and their support team is responsive and knowledgeable.",
     rating: 5,
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&h=256&q=80"
   },

@@ -141,9 +141,8 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children, title = "Da
         )}
       >
         <div className="flex h-14 items-center border-b px-4 py-4">
-          <div className="flex items-center space-x-2 font-semibold">
-            <Server className="h-5 w-5 text-accent" />
-            <span className="text-lg">A&D Hosting</span>
+          <div className="flex items-center -ml-4">
+            <img src="/A&D-Studios33.png" alt="A&D Studios Logo" className="h-56 w-auto" />
           </div>
         </div>
 

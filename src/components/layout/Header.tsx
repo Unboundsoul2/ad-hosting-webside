@@ -46,10 +46,9 @@ const Header = () => {
         isScrolled ? "py-3 bg-background/80 backdrop-blur-lg shadow-sm" : "py-5 bg-transparent"
       }`}
     >
-      <Container className="flex items-center justify-between">
-        <Link to="/" className="flex items-center space-x-2">
-          <Server className="h-6 w-6 text-accent" />
-          <span className="text-xl font-heading font-semibold tracking-tight">A&D Hosting</span>
+      <Container className="flex items-center justify-between px-0 mx-0 max-w-none">
+        <Link to="/" className="flex items-center ml-24">
+          <img src="/A&D-Studios33.png" alt="A&D Studios Logo" className="h-64 w-auto" />
         </Link>
 
         {/* Desktop navigation */}
