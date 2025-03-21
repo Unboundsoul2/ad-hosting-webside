@@ -43,11 +43,11 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "py-3 bg-background/80 backdrop-blur-lg shadow-sm" : "py-5 bg-transparent"
+        isScrolled ? "py-3 bg-background/80 backdrop-blur-lg shadow-sm" : "py-0 bg-transparent"
       }`}
     >
-      <Container className="flex items-center justify-between px-0 mx-0 max-w-none">
-        <Link to="/" className="flex items-center ml-24">
+      <Container className="flex items-center justify-between px-0 mx-0 max-w-none -translate-x-[108px]">
+        <Link to="/" className="flex items-center ml-3">
           <img src="/A&D-Studios33.png" alt="A&D Studios Logo" className="h-64 w-auto" />
         </Link>
 
