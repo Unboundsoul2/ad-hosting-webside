@@ -5,10 +5,10 @@ const Footer = () => {
 
   return (
     <footer className="bg-secondary py-12 md:py-16">
-      <Container className="px-0 mx-0 max-w-none -translate-x-[108px]">
+      <Container>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-12">
-          <div className="col-span-1 md:col-span-1 lg:col-span-1 ml-3">
-            <img src="/A&D-Studios33.png" alt="A&D Studios Logo" className="h-64 w-auto mb-4" />
+          <div className="col-span-1 md:col-span-1 lg:col-span-1">
+            <h3 className="text-lg font-semibold mb-4">A&D Studios</h3>
             <p className="text-muted-foreground mb-6 max-w-xs">
               Premium digital solutions for businesses and individuals since 2020.
             </p>
@@ -94,8 +94,8 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-muted-foreground mb-4 md:mb-0 ml-3">
-            &copy; {currentYear} <img src="/A&D-Studios33.png" alt="A&D Studios Logo" className="h-32 w-auto inline-block" />. All rights reserved.
+          <p className="text-sm text-muted-foreground mb-4 md:mb-0">
+            &copy; {currentYear} A&D Studios. All rights reserved.
           </p>
           <div className="flex space-x-6">
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors">

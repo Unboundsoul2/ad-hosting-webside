@@ -36,7 +36,7 @@ npm i
 npm run dev
 ```
 
-### Editing files directly in GitHub
+### Editing directly in GitHub
 
 - Navigate to the desired file(s).
 - Click the "Edit" button (pencil icon) at the top right of the file view.

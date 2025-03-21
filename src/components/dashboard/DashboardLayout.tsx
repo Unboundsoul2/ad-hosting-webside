@@ -142,7 +142,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children, title = "Da
       >
         <div className="flex h-14 items-center border-b px-4 py-4">
           <div className="flex items-center -ml-4">
-            <img src="/A&D-Studios33.png" alt="A&D Studios Logo" className="h-56 w-auto" />
+            <img src="/A&D-Studios33.png" alt="A&D Studios Logo" className="h-56 w-auto -ml-36" />
           </div>
         </div>
 

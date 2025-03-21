@@ -131,7 +131,11 @@ const SidebarProvider = React.forwardRef<
       <SidebarContext.Provider value={contextValue}>
         <TooltipProvider delayDuration={0}>
           <div
-            className={`[--sidebar-width:${SIDEBAR_WIDTH}px] [--sidebar-width-icon:${SIDEBAR_WIDTH_ICON}px] ${className || ''}`}
+            className={cn(
+              "group/sidebar-wrapper flex min-h-svh w-full has-[[data-variant=inset]]:bg-sidebar",
+              "[--sidebar-width:var(--sidebar-width)] [--sidebar-width-icon:var(--sidebar-width-icon)]",
+              className
+            )}
             ref={ref}
             {...props}
           >
