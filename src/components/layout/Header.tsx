@@ -35,7 +35,7 @@ const Header = () => {
     if (user) {
       navigate("/dashboard");
     } else {
-      navigate("/auth");
+      navigate("/auth?tab=login");
     }
     setIsMobileMenuOpen(false);
   };

@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate, Navigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, Navigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { Container } from "@/components/ui/container";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -14,10 +14,23 @@ import Footer from "@/components/layout/Footer";
 const Auth = () => {
   const { user, signIn, signUp, isLoading } = useAuth();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [name, setName] = useState("");
+  const [company, setCompany] = useState("");
   const [authLoading, setAuthLoading] = useState(false);
-  const [activeTab, setActiveTab] = useState("login");
+  const [activeTab, setActiveTab] = useState(searchParams.get("tab") || "login");
+  const [error, setError] = useState("");
+
+  // Update active tab when URL changes
+  useEffect(() => {
+    const tab = searchParams.get("tab");
+    if (tab) {
+      setActiveTab(tab);
+    }
+  }, [searchParams]);
 
   // Redirect if already logged in
   if (user && !isLoading) {
@@ -26,11 +39,13 @@ const Auth = () => {
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError("");
     setAuthLoading(true);
     try {
       await signIn(email, password);
       navigate("/");
     } catch (error) {
+      setError("Invalid email or password");
       console.error("Login error:", error);
     } finally {
       setAuthLoading(false);
@@ -39,11 +54,30 @@ const Auth = () => {
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError("");
+    
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+
+    if (password.length < 6) {
+      setError("Password must be at least 6 characters long");
+      return;
+    }
+
     setAuthLoading(true);
     try {
       await signUp(email, password);
+      // After successful registration, switch to login tab
       setActiveTab("login");
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
+      setName("");
+      setCompany("");
     } catch (error) {
+      setError("Registration failed. Please try again.");
       console.error("Signup error:", error);
     } finally {
       setAuthLoading(false);
@@ -71,6 +105,7 @@ const Auth = () => {
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
+                    {error && <div className="text-red-500 text-sm">{error}</div>}
                     <div className="space-y-2">
                       <Label htmlFor="email">Email</Label>
                       <Input
@@ -117,10 +152,22 @@ const Auth = () => {
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="space-y-4">
+                    {error && <div className="text-red-500 text-sm">{error}</div>}
                     <div className="space-y-2">
-                      <Label htmlFor="email">Email</Label>
+                      <Label htmlFor="register-name">Full Name</Label>
                       <Input
-                        id="email"
+                        id="register-name"
+                        type="text"
+                        placeholder="John Doe"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        required
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="register-email">Email</Label>
+                      <Input
+                        id="register-email"
                         type="email"
                         placeholder="email@example.com"
                         value={email}
@@ -129,12 +176,34 @@ const Auth = () => {
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="password">Password</Label>
+                      <Label htmlFor="register-company">Company Name (Optional)</Label>
                       <Input
-                        id="password"
+                        id="register-company"
+                        type="text"
+                        placeholder="Your Company"
+                        value={company}
+                        onChange={(e) => setCompany(e.target.value)}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="register-password">Password</Label>
+                      <Input
+                        id="register-password"
                         type="password"
+                        placeholder="••••••••"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
+                        required
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="register-confirm-password">Confirm Password</Label>
+                      <Input
+                        id="register-confirm-password"
+                        type="password"
+                        placeholder="••••••••"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
                         required
                       />
                     </div>
